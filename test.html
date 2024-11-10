@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPDF Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <button id="download">Download PDF</button>
+
+    <script>
+        document.getElementById('download').addEventListener('click', () => {
+            try {
+                const {
+                    jsPDF
+                } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text("Hello world!", 10, 10);
+                doc.save("test.pdf");
+                console.log("PDF generated successfully");
+            } catch (error) {
+                console.error("Error generating PDF: ", error);
+            }
+        });
+    </script>
+</body>
+
+</html>
